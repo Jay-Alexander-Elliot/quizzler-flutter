@@ -38,6 +38,8 @@ class _QuizPageState extends State<QuizPage> {
     'A slug\'s blood is green.',
   ];
 
+  List<bool> answers = [false, true, true];
+
   int questionNumber = 0;
 
   @override
@@ -55,7 +57,7 @@ class _QuizPageState extends State<QuizPage> {
                 questions[questionNumber],
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 25.0,
+                  fontSize: 30.0,
                   color: Colors.white,
                 ),
               ),
@@ -75,7 +77,11 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
                 setState(() {
+                  if (questionNumber < questions.length - 1) {
+                    questionNumber++;
+                  } else {}
                   scoreKeeper.add(
                     const Icon(
                       Icons.check,
@@ -98,7 +104,19 @@ class _QuizPageState extends State<QuizPage> {
                 style: TextStyle(fontSize: 25.0, color: Colors.white),
               ),
               onPressed: () {
-// The user picked false.
+                bool correctAnswer = answers[questionNumber];
+                setState(() {
+                  if (questionNumber < questions.length - 1) {
+                    questionNumber++;
+                  } else {}
+                  scoreKeeper.add(
+                    const Icon(
+                      Icons.check,
+                      color: Colors.red,
+                    ),
+                  );
+                });
+                // The user picked true.
               },
             ),
           ),
