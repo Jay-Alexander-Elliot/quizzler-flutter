@@ -1,0 +1,61 @@
+# General
+*.log
+*.pyc
+*.swp
+.DS_Store
+.history
+.mtj.tmp/
+**/doc/api/
+
+# Dart specific
+.dart_tool/
+.buildlog/
+.pub-cache/
+.packages
+build/
+
+# Flutter specific
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/ephemeral
+**/ios/Flutter/flutter_assets/
+**/android/**/gradle-wrapper.jar
+.android/
+**/android/key.properties
+*.jks
+
+# Android Studio
+.capture/
+.gradle/
+.navigation/
+
+# IntelliJ
+*.iml
+.idea/
+*.iws
+*.ipr
+
+# Visual Studio Code
+.vscode/
+
+# Xcode
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+
+# Exceptions to above rules.
+!**/ios/**/default.mode1v3
+!**/ios/**/default.mode2v3
+!**/ios/**/default.pbxuser
+!**/ios/**/default.perspectivev3
