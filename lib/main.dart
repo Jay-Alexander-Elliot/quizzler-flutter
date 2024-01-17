@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+// If you're using rFlutter_Alert, uncomment the next line
+// import 'package:rflutter_alert/rflutter_alert.dart';
+import 'quiz_brain.dart';
 
-void main() => runApp(const Quizzler());
+QuizBrain quizBrain = QuizBrain();
+
+void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
-  const Quizzler({Key? key}) : super(key: key); // Corrected constructor syntax
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,25 +25,33 @@ class Quizzler extends StatelessWidget {
 }
 
 class QuizPage extends StatefulWidget {
-  const QuizPage({Key? key}) : super(key: key); // Corrected constructor syntax
-
   @override
-  State<QuizPage> createState() => _QuizPageState();
+  _QuizPageState createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
-  // Declare the list with the correct syntax
   List<Icon> scoreKeeper = [];
 
-  List<String> questions = [
-    'You can lead a cow down stairs but not up stairs.',
-    'Approximately one quarter of human bones are in the feet.',
-    'A slug\'s blood is green.',
-  ];
+  void checkAnswer(bool userPickedAnswer) {
+    setState(() {
+      if (quizBrain.isFinished()) {
+        quizBrain.reset();
+        scoreKeeper = [];
+      } else {
+        // The answer checking steps
+        if (userPickedAnswer == correctAnswer) {
+          scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+        } else {
+          scoreKeeper.add(Icon(Icons.close, color: Colors.red));
+        }
+        quizBrain.nextQuestion();
+        questionNumber++;
+      }
+    });
+  }
+  }
 
-  List<bool> answers = [false, true, true];
 
-  int questionNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +65,10 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber],
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 25.0,
                   color: Colors.white,
                 ),
               ),
@@ -66,80 +77,38 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: EdgeInsets.all(15.0),
             child: TextButton(
               style: TextButton.styleFrom(backgroundColor: Colors.green),
-              child: const Text(
+              child: Text(
                 'True',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                ),
+                style: TextStyle(color: Colors.white, fontSize: 20.0),
               ),
               onPressed: () {
-                bool correctAnswer = answers[questionNumber];
-                setState(() {
-                  if (questionNumber < questions.length - 1) {
-                    questionNumber++;
-                  } else {}
-                  scoreKeeper.add(
-                    const Icon(
-                      Icons.check,
-                      color: Colors.green,
-                    ),
-                  );
-                });
-                // The user picked true.
+                checkAnswer(true);
               },
             ),
           ),
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: EdgeInsets.all(15.0),
             child: TextButton(
               style: TextButton.styleFrom(backgroundColor: Colors.red),
-              child: const Text(
+              child: Text(
                 'False',
-                style: TextStyle(fontSize: 25.0, color: Colors.white),
+                style: TextStyle(fontSize: 20.0, color: Colors.white),
               ),
               onPressed: () {
-                bool correctAnswer = answers[questionNumber];
-                setState(() {
-                  if (questionNumber < questions.length - 1) {
-                    questionNumber++;
-                  } else {}
-                  scoreKeeper.add(
-                    const Icon(
-                      Icons.check,
-                      color: Colors.red,
-                    ),
-                  );
-                });
-                // The user picked true.
+                checkAnswer(false);
               },
             ),
           ),
         ),
-        Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: scoreKeeper,
-          ),
+        Row(
+          children: scoreKeeper,
         ),
       ],
     );
   }
 }
-
-/*
-question1: 'You can lead a cow down stairs but not up stairs.', false,
-question2: 'Approximately one quarter of human bones are in the feet.', true,
-question3: 'A slug\'s blood is green.', true,
-*/
-
-// Icon(Icons.check, color: Colors.green),
-// Icon(Icons.close, color: Colors.red),
-// Icon(Icons.close, color: Colors.red),
-// Icon(Icons.close, color: Colors.red),
-// Icon(Icons.close, color: Colors.red),

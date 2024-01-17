@@ -1,34 +1,43 @@
-# quizzler_flutter
+# Quizzler - A True/False Quiz App
 
-This repository contains the Quizzler project, a part of the Complete Flutter Development Bootcamp by The App Brewery. It serves as a practical implementation and adaptation of the concepts learned during the course. The project is a Flutter-based mobile application designed to provide an interactive quiz experience.
+## Project Overview
+Quizzler is an educational project that is part of a comprehensive Flutter course on Udemy. This application is designed as a True/False quiz app that provides users with a series of questions and allows them to select answers. The app keeps track of the users' scores and presents a final tally at the end of the quiz.
 
-## Course Overview
+The primary focus of this project is to enhance the understanding of Flutter and Dart programming concepts. The Quizzler app serves as a practical implementation of the following key learning topics covered in the course:
 
-The Complete Flutter Development Bootcamp is an extensive course that covers the essentials of Flutter and Dart, guiding students through the process of building engaging and dynamic mobile applications. This course is suitable for both beginners and experienced developers looking to expand their skillset in mobile app development using Flutter.
+1. **Flutter Framework Basics:**
+    - Introduction to the Flutter framework and setting up the development environment.
+    - Understanding the structure of a Flutter application and the role of widgets.
 
-## Project Background
+2. **Dart Programming Concepts:**
+    - Lists: Usage of lists in Dart to store a series of questions.
+    - Conditionals: Implementing IF/ELSE logic to handle user interactions and control the flow of the application.
+    - Classes and Objects: Understanding the principles of Object-Oriented Programming (OOP) in Dart.
+    - Class Constructors: Learning about constructors and how to use them in Dart for initializing class objects.
 
-The Quizzler app is a project developed during the course. It is important to note that the code in this repository may contain bugs and imperfections, as it has been adapted from older codebases and is part of a learning process. Feedback and contributions to improve the code are welcome.
+3. **OOP Principles in Action:**
+    - Abstraction: Creating a Question class to manage the data model of the quiz.
+    - Encapsulation: Ensuring that the inner workings of the classes are hidden from the rest of the application, exposing only the necessary functionalities.
+    - Inheritance and Polymorphism: Demonstrating OOP principles through practical code examples.
 
-## Getting Started with the Quizzler Flutter Project
+4. **Building Functionalities:**
+    - Building a Score Keeper to track and display the user's score.
+    - Displaying Questions and Checking User Answers.
+    - Progressing through questions and updating the UI dynamically.
 
-To get started with the Quizzler Flutter project, follow these steps:
+5. **Code Challenges and Best Practices:**
+    - Engaging in practical coding challenges to reinforce learning.
+    - Learning and applying best practices in code structure and organization.
 
-1. **Clone the Repository**: Clone this repository to your local machine to start working on the project.
+## Current State of the Project
+As of now, the project's code is in a non-functional state due to outdated Flutter standards and requires refactoring and bug fixes. Given the time constraints as a student, I am currently unable to allocate the necessary time to update and repair the codebase. The intention is to revisit and rectify these issues as time permits.
 
-2. **Explore the Resources**: Familiarize yourself with Flutter development using these resources:
-    - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-    - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-    - [Flutter Documentation](https://docs.flutter.dev/) for detailed tutorials, samples, and a full API reference.
+The code for this project is available on GitHub and can be accessed through the following link: [Quizzler Challenge Final](https://github.com/londonappbrewery/quizzler-flutter-challenge-final).
 
-3. **Understand the Dependencies**: The project uses the [rFlutter Alert](https://pub.dartlang.org/packages/rflutter_alert) package. Check out its documentation for more insights.
+## Learning Resources
+For those interested in learning more about Flutter, Dart, and the principles of OOP, I highly recommend exploring the following resources:
+- [Flutter Documentation](https://flutter.dev/docs)
+- [Dart Programming Language](https://dart.dev/)
+- [rFlutter Alert Package Documentation](https://pub.dartlang.org/packages/rflutter_alert)
 
-4. **Follow the Course Challenges**: Engage with the step-by-step challenges provided in the course to enhance your understanding and skills in Flutter development.
-
-## Course Link
-
-For more information about The App Brewery's Complete Flutter Development Bootcamp and other related courses, visit [www.appbrewery.co](https://www.appbrewery.co/).
-
----
-
-This project is part of an educational course and is intended for learning and development purposes.
+Stay tuned for future updates, and happy coding!
